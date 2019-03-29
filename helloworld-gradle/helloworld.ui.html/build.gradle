@@ -1,0 +1,15 @@
+
+description = 'My Application HTML UI'
+dependencies {
+    compile group: 'org.eclipse.scout.rt', name: 'org.eclipse.scout.rt.ui.html', version:'7.0.200.005_Oxygen_2'
+  compile project(':helloworld:helloworld.client')
+}
+
+task packageTests(type: Jar) {
+  from sourceSets.test.output
+  classifier = 'tests'
+}
+artifacts.archives packageTests
+apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8

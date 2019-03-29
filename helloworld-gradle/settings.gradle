@@ -1,0 +1,18 @@
+rootProject.name = 'helloworld-gradle'
+include ':helloworld:helloworld.shared'
+include ':helloworld:helloworld.server'
+include ':helloworld:helloworld.client'
+include ':helloworld:helloworld.server.app.war'
+include ':helloworld:helloworld.ui.html'
+include ':helloworld:helloworld.ui.html.app.war'
+
+project(':helloworld:helloworld.shared').projectDir = "$rootDir/helloworld.shared" as File
+project(':helloworld:helloworld.server').projectDir = "$rootDir/helloworld.server" as File
+project(':helloworld:helloworld.client').projectDir = "$rootDir/helloworld.client" as File
+project(':helloworld:helloworld.server.app.war').projectDir = "$rootDir/helloworld.server.app.war" as File
+project(':helloworld:helloworld.ui.html').projectDir = "$rootDir/helloworld.ui.html" as File
+project(':helloworld:helloworld.ui.html.app.war').projectDir = "$rootDir/helloworld.ui.html.app.war" as File
+include ':helloworld:helloworld.server.app.dev'
+include ':helloworld:helloworld.ui.html.app.dev'
+project(':helloworld:helloworld.server.app.dev').projectDir = "$rootDir/helloworld.server.app.dev" as File
+project(':helloworld:helloworld.ui.html.app.dev').projectDir = "$rootDir/helloworld.ui.html.app.dev" as File

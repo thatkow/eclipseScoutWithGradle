@@ -1,0 +1,35 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'org.eclipse.scout.apps'
+version = '1.0.0-SNAPSHOT'
+
+description = """My Application Server Application (Development)"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+configurations.all {
+}
+
+repositories {
+        
+     maven { url "https://repo.eclipse.org/content/groups/snapshots/" }
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.eclipse.scout.rt', name: 'org.eclipse.scout.dev.jetty', version:'7.0.200.005_Oxygen_2'
+    compile group: 'org.eclipse.scout.apps', name: 'helloworld.server', version:'1.0.0-SNAPSHOT'
+}
+//packaging tests
+task packageTests(type: Jar) {
+  from sourceSets.test.output
+  classifier = 'tests'
+}
+artifacts.archives packageTests
+apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8

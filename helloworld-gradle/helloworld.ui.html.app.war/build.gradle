@@ -1,0 +1,17 @@
+
+apply plugin: 'war'
+
+description = 'My Application HTML UI Application'
+dependencies {
+  compile project(':helloworld:helloworld.ui.html')
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version:'3.1.0'
+}
+
+task packageTests(type: Jar) {
+  from sourceSets.test.output
+  classifier = 'tests'
+}
+artifacts.archives packageTests
+apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8

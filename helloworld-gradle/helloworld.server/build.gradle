@@ -1,0 +1,16 @@
+
+description = 'My Application Server'
+dependencies {
+    compile group: 'org.eclipse.scout.rt', name: 'org.eclipse.scout.rt.server', version:'7.0.200.005_Oxygen_2'
+  compile project(':helloworld:helloworld.shared')
+    testCompile group: 'org.eclipse.scout.rt', name: 'org.eclipse.scout.rt.server.test', version:'7.0.200.005_Oxygen_2'
+}
+
+task packageTests(type: Jar) {
+  from sourceSets.test.output
+  classifier = 'tests'
+}
+artifacts.archives packageTests
+apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
